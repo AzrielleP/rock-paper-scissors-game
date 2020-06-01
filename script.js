@@ -1,4 +1,4 @@
-let numberOfRounds = 5;
+let numberOfRounds = +prompt("How many rounds do you want?");
 
 game(numberOfRounds);
 
