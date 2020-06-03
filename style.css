@@ -1,0 +1,201 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin:0;
+    padding:0;
+    font: 24px 'Hind', sans-serif;
+    
+}
+
+/* ================================ */ 
+.container{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5em;
+    height: 100vh;
+    background-color: #121212;
+}
+
+/* ================================ */ 
+.players{
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    padding: 1em 2em 1em 2em;
+    font-size: 30px;
+}
+
+
+.player1, 
+.player2{
+    height: 2em;
+    width: 15em;
+    display: flex;
+    align-items: center;
+    padding: 1em;
+
+}
+
+.player1{
+    color: #121212;
+    background-color: #03DAC5;
+}
+
+.player2{
+    color: #121212;
+    background-color: #CF6679;
+    justify-content: flex-end;
+}
+
+
+
+/* ================================ */ 
+.status{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    padding: 2em;
+    height: 70vh;
+}
+
+.playerStatus, 
+.computerStatus{
+    display: flex;
+}
+
+.playerScore,
+.computerScore{
+    width: 10vw;
+    margin: 1em;
+    padding: 0.5em;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    border: 3px solid;
+    border-radius: 10px;
+}
+
+.playerScore{
+    color: #03DAC5;
+    border-color: #03DAC5;
+}
+
+.computerScore{
+    color: #CF6679;
+    border-color: #CF6679;
+}
+
+
+.playerScore .playerCurrentScore,
+.computerCurrentScore{
+    font-size: 90px;
+}
+
+.playerHand,
+.computerHand{
+    background: url(img/rock.png) center/contain no-repeat;
+    width: 20vw;
+    height: 30vh;
+    
+}
+
+.computerHand{
+    transform: rotate(180deg);
+}
+/* ================================ */ 
+.choices{
+    display: flex;
+    justify-content: space-evenly;
+    width: 70vw;
+
+}
+
+.choices button{
+    height: 5rem;
+    width: 5em;
+    font: 40px "Hind", sans-serif; 
+    color: #BB86FC;
+    background-color: transparent;
+    border: 5px solid #BB86FC;
+    
+}
+
+.choices button:active,
+.choices button:hover{
+    outline: 0;
+    border: 5px inset #3700B3;
+    color: #3700B3
+}
+
+.choices button:focus{
+    outline: none;
+}
+
+/*===============*/
+.modal{
+    visibility: hidden;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    left:0;
+    top:0;
+    position: fixed;
+    background-color:rgb(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalBox{
+    display: none;
+    height: 65%;
+    width: 40%;
+    border: 5px solid #CF6679;
+    border-radius: 20px;;
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalBox .gg{
+    color: #FFFFFF;
+    font-size: 3.5em;
+}
+
+.modalBox .result{
+    color: #CF6679;
+    font-size: 3em;
+}
+
+.modalBox .playAgain{
+    height: 3rem;
+    width: 8em;
+    font-size: 20px;
+    color: #121212;
+    background-color: #FFFFFF;
+    outline: none;
+    border: none;
+}
+
+.modalBox .playAgain:active,
+.modalBox .playAgain:hover{
+    outline: 0;
+    background-color: #121212;
+    border: 3px solid #FFFFFF;
+    color: #FFFFFF;
+}
+
+.modalBox .playAgain:focus{
+    outline: none;
+}
