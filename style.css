@@ -102,7 +102,10 @@ body{
 
 .playerHand,
 .computerHand{
-    background: url(img/rock.png) center/contain no-repeat;
+    background-image: url(img/rock.png);
+    background-position:center;
+    background-size: contain;
+    background-repeat: no-repeat ;
     width: 25vw;
     height: 35vh;
     
@@ -110,6 +113,11 @@ body{
 
 .computerHand{
     transform: rotate(180deg);
+}
+
+
+.roundResult{
+    color: white;
 }
 /* ================================ */ 
 .choices{

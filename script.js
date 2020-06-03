@@ -1,87 +1,89 @@
-
-
 let playerChoice = document.querySelectorAll("button");
+let playerHand = document.querySelector(".playerHand");
+let computerHand = document.querySelector(".computerHand");
+let playerCurrentScore = document.querySelector(".playerCurrentScore");
+let computerCurrentScore = document.querySelector(".computerCurrentScore");
 
-playerChoice.forEach((button) =>{
-  button.addEventListener('click', event =>{
-    let playerSelection = button.id;
-    playRound(playerSelection, computerSelection);
-  })
-})
+let roundResult = document.querySelector(".roundResult");
+
+let playerScore = 0;
+let computerScore = 0;
+game(5);
 
 
+function game(numberOfRounds) {
+  
+  //for (let i = 0; i < numberOfRounds; i++) {
+   
 
-
-
-
-function playRound(playerSelection, computerSelection) {
-  if (playerSelection == "rock" && computerSelection == "scissors")
-    return playerWins();
-
-  if (playerSelection == "paper" && computerSelection == "rock")
-    return playerWins();
-
-  if (playerSelection == "scissors" && computerSelection == "paper")
-    return playerWins();
-
-  if (playerSelection == computerSelection) return gameIsDraw();
-  else return playerLose();
-
-  function playerWins() {
-    console.log(`You win! ${playerSelection} beats ${computerSelection}`);
-    return 1;
-  }
-
-  function playerLose() {
-    console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
-    return -1;
-  }
-
-  function gameIsDraw() {
-    console.log("Draw!");
-    return 0;
-  }
+    playerChoice.forEach((button) =>{
+      button.addEventListener('mousedown', event =>{
+        let playerSelection = button.id;
+        let computerSelection = computerPlay(choices);
+        playRound(playerSelection, computerSelection);
+        event.stopPropagation();
+      }, false);
+    })
+  //}
 }
 
-
-let choices = ["rock", "paper", "scissors"];
+let choices = ["rock", "paper", "scissor"];
 function computerPlay(arrayOfChoices) {
   let computerPick =
     arrayOfChoices[Math.floor(Math.random() * arrayOfChoices.length)];
   return computerPick;
 }
-let computerSelection = computerPlay(choices);
 
-//game function accepts the number of rounds to be looped
-function game(numberOfRounds) {
-  //Create an array for the computer's choices
-  
+function playRound(playerSelection, computerSelection) {
+  playerHand.style.backgroundImage = `url(img/${playerSelection}.png)`;
+  computerHand.style.backgroundImage = `url(img/${computerSelection}.png)`;
 
-  /*roundStatus counts the number of wins. 
-  If it is positive, the player wins. 
-  If it is negative, the computer wins. If it is 0, it's a tie.
-  */
-  let roundStatus = 0;
-
-  //Loop the number of rounds
-  for (let i = 0; i < numberOfRounds; i++) {
-    let playerSelection = prompt("Rock, paper, or scissors? ").toLowerCase();
-
-
-    // If the player has a wrong input, the game stops.
-    if (!choices.includes(playerSelection))
-      return alert("Wrong input! Game stops");
-
-    // Create the total of roundStatus
-    roundStatus += Number(playRound(playerSelection, computerSelection));
+  if (playerSelection == "rock" && computerSelection == "scissor"){
+    return playerWins();
   }
 
-  if (roundStatus > 0) console.log("Game over. You win!");
-  else if (roundStatus < 0) console.log("Game over. You lose!");
-  else console.log("Game over. It's a draw!");
+  else if (playerSelection == "paper" && computerSelection == "rock")
+  {
+    return playerWins();
+  }
 
-  // Create a function that lets the computer randomly choose a choice
-  
+  else if (playerSelection == "scissor" && computerSelection == "paper"){
+    return playerWins();
+  }
 
+  else if (playerSelection == computerSelection) {
+    return gameIsDraw();
+  }
+
+  else{
+    return playerLose();
+  } 
+
+  function playerWins() {
+    console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+    roundResult.textContent = "You win!";
+
+    playerScore ++;
+    playerCurrentScore.textContent = playerScore;
+  }
+
+  function playerLose() {
+    console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
+    roundResult.textContent = "You lose!";
+ 
+    computerScore ++;
+    computerCurrentScore.textContent = computerScore;
+  }
+
+  function gameIsDraw() {
+    roundResult.textContent = "Draw";
+    console.log("Draw");
+  }
   
 }
+
+
+
+
+
+
