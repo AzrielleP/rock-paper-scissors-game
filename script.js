@@ -3,28 +3,25 @@ let playerHand = document.querySelector(".playerHand");
 let computerHand = document.querySelector(".computerHand");
 let playerCurrentScore = document.querySelector(".playerCurrentScore");
 let computerCurrentScore = document.querySelector(".computerCurrentScore");
-
 let roundResult = document.querySelector(".roundResult");
-
 let playerScore = 0;
 let computerScore = 0;
+
 game(5);
 
-
 function game(numberOfRounds) {
-  
-  //for (let i = 0; i < numberOfRounds; i++) {
-   
-
-    playerChoice.forEach((button) =>{
-      button.addEventListener('mousedown', event =>{
-        let playerSelection = button.id;
-        let computerSelection = computerPlay(choices);
-        playRound(playerSelection, computerSelection);
-        event.stopPropagation();
-      }, false);
-    })
-  //}
+  playerChoice.forEach((button) => {
+    for (let i = 0; i < numberOfRounds; i++) {
+      button.addEventListener("mousedown", (event) => {
+        if (event.button == 0) {
+          let playerSelection = button.id;
+          let computerSelection = computerPlay(choices);
+          playRound(playerSelection, computerSelection);
+          event.stopPropagation();
+        }
+      });
+    }
+  });
 }
 
 let choices = ["rock", "paper", "scissor"];
@@ -38,52 +35,35 @@ function playRound(playerSelection, computerSelection) {
   playerHand.style.backgroundImage = `url(img/${playerSelection}.png)`;
   computerHand.style.backgroundImage = `url(img/${computerSelection}.png)`;
 
-  if (playerSelection == "rock" && computerSelection == "scissor"){
+  if (playerSelection == "rock" && computerSelection == "scissor") {
     return playerWins();
-  }
-
-  else if (playerSelection == "paper" && computerSelection == "rock")
-  {
+  } else if (playerSelection == "paper" && computerSelection == "rock") {
     return playerWins();
-  }
-
-  else if (playerSelection == "scissor" && computerSelection == "paper"){
+  } else if (playerSelection == "scissor" && computerSelection == "paper") {
     return playerWins();
-  }
-
-  else if (playerSelection == computerSelection) {
+  } else if (playerSelection == computerSelection) {
     return gameIsDraw();
-  }
-
-  else{
+  } else {
     return playerLose();
-  } 
+  }
 
   function playerWins() {
     console.log(`You win! ${playerSelection} beats ${computerSelection}`);
-    roundResult.textContent = "You win!";
-
-    playerScore ++;
+    roundResult.textContent = "YOU WIN";
+    playerScore++;
     playerCurrentScore.textContent = playerScore;
   }
 
   function playerLose() {
     console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
-    roundResult.textContent = "You lose!";
- 
-    computerScore ++;
+    roundResult.textContent = "YOU LOSE";
+
+    computerScore++;
     computerCurrentScore.textContent = computerScore;
   }
 
   function gameIsDraw() {
-    roundResult.textContent = "Draw";
+    roundResult.textContent = "DRAW";
     console.log("Draw");
   }
-  
 }
-
-
-
-
-
-

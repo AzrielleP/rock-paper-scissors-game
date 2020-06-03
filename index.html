@@ -1,77 +1,76 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-    <meta charset = "utf-8">
-    <meta name = "author" content = "Azrielle Pelayo">
-    <meta name = "description" content = "Rock paper scissors game">
-    <meta name = "viewport" content ="width=device-width, initial-scale=1.0">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Azrielle Pelayo" />
+    <meta name="description" content="Rock paper scissors game" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-        G! Rock Paper Scissors
+      G! Rock Paper Scissors
     </title>
-    <link rel = "stylesheet" href = "style.css">
- 
+    <link rel="stylesheet" href="style.css" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@500&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind:wght@500&display=swap"
+      rel="stylesheet"
+    />
 
-    <script src= "script.js" defer></script>
-    </head>
+    <script src="script.js" defer></script>
+  </head>
 
-    <body>
-        <div class="container">
-            <div class="players">
-                <div class="player1">
-                    <span>Player</span>
-                </div>
-                <div class="player2">
-                    <span>Computer</span>
-                </div>
-            </div>
-
-            <div class="status">
-                <div class="playerStatus">
-                    <div class="playerScore">
-                        <p>Score</p>
-                        <p class = playerCurrentScore>0</p>
-                    </div>
-                    <div class="playerHand">
-                        <!--hand gesture-->
-                    </div>
-                </div>
-                <div class="gameResult">
-                    <p class = "roundResult"></p>
-                </div>
-                <div class="computerStatus">
-                    <div class="computerHand">
-                        <!-- hand gesture-->
-                    </div>
-                    <div class="computerScore">
-                        <p>Score</p>
-                        <p class = computerCurrentScore>0</p>
-                    </div>
-
-                </div>
-            </div>
-            <div class="choices">
-                <button id="rock" class = "choice">
-                    <span>Rock</span>
-                </button>
-                <button id="paper" class = "choice">
-                    <span>Paper</span>
-                </button>
-                <button id="scissor" class = "choice">
-                    <span>Scissor</span>
-                </button>
-            </div>
-            
+  <body>
+    <div class="container">
+      <div class="players">
+        <div class="player1">
+          <span>Player</span>
         </div>
-        <div class="modal">
-            <div class="modalBox">
-                <p class = "gg">GAME OVER</p> <!--Defaulted to lose as reflected in JS file-->
-                <p class = "result">You Lose!</p>
-                <button class = "playAgain">Play Again</button>
-            </div>
+        <div class="player2">
+          <span>Computer</span>
         </div>
-       
-    </body>
+      </div>
+
+      <div class="status">
+        <div class="playerStatus">
+          <div class="playerScore">
+            <p>Score</p>
+            <p class="playerCurrentScore">0</p>
+          </div>
+          <div class="playerHand">
+            <!--hand gesture-->
+          </div>
+        </div>
+        <div class="gameResult">
+          <p class="roundResult"></p>
+        </div>
+        <div class="computerStatus">
+          <div class="computerHand">
+            <!-- hand gesture-->
+          </div>
+          <div class="computerScore">
+            <p>Score</p>
+            <p class="computerCurrentScore">0</p>
+          </div>
+        </div>
+      </div>
+      <div class="choices">
+        <button id="rock">
+          <span>Rock</span>
+        </button>
+        <button id="paper">
+          <span>Paper</span>
+        </button>
+        <button id="scissor">
+          <span>Scissor</span>
+        </button>
+      </div>
+    </div>
+    <div class="modal">
+      <div class="modalBox">
+        <p class="gg">GAME OVER</p>
+        <!--Defaulted to lose as reflected in JS file-->
+        <p class="result">You Lose!</p>
+        <button class="playAgain">Play Again</button>
+      </div>
+    </div>
+  </body>
 </html>
-
