@@ -103,8 +103,8 @@ body{
 .playerHand,
 .computerHand{
     background: url(img/rock.png) center/contain no-repeat;
-    width: 20vw;
-    height: 30vh;
+    width: 25vw;
+    height: 35vh;
     
 }
 
