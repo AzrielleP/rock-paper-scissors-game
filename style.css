@@ -21,7 +21,7 @@ body {
   background-color: #121212;
 }
 
-/* ================================ */
+/* Player Names  Area*/
 .players {
   display: flex;
   justify-content: space-between;
@@ -52,7 +52,7 @@ body {
   justify-content: flex-end;
 }
 
-/* ================================ */
+/* Game Status Area */
 .status {
   display: flex;
   justify-content: space-between;
@@ -77,6 +77,7 @@ body {
   align-items: center;
   border: 3px solid;
   border-radius: 10px;
+
 }
 
 .playerScore {
@@ -89,7 +90,7 @@ body {
   border-color: #cf6679;
 }
 
-.playerScore .playerCurrentScore,
+.playerCurrentScore,
 .computerCurrentScore {
   font-size: 90px;
 }
@@ -108,16 +109,16 @@ body {
   transform: rotate(180deg);
 }
 
-.gameResult {
+.resultContainer {
   color: white;
-  font-size: 2em;
+  font-size: 2.5em;
   line-height: 1;
   display: flex;
   text-align: center;
   padding: 1em;
 }
 
-/* ================================ */
+/* Choices Area*/
 .choices {
   display: flex;
   justify-content: space-evenly;
@@ -131,6 +132,7 @@ body {
   color: #bb86fc;
   background-color: transparent;
   border: 5px solid #bb86fc;
+  text-transform: uppercase;
 }
 
 .choices button:active,
@@ -144,7 +146,7 @@ body {
   outline: none;
 }
 
-/*===============*/
+/*Game Over Area*/
 .modal {
   visibility: hidden;
   z-index: 1;
