@@ -1,27 +1,48 @@
-let playerChoice = document.querySelectorAll("button");
+"use strict";
+
+let playerChoice = document.querySelector(".choices");
 let playerHand = document.querySelector(".playerHand");
 let computerHand = document.querySelector(".computerHand");
 let playerCurrentScore = document.querySelector(".playerCurrentScore");
 let computerCurrentScore = document.querySelector(".computerCurrentScore");
 let roundResult = document.querySelector(".roundResult");
+let modal = document.querySelector(".modal");
+let gameResult = document.querySelector(".result");
+let playAgain = document.querySelector(".playAgain");
 let playerScore = 0;
 let computerScore = 0;
 
 game(5);
 
 function game(numberOfRounds) {
-  playerChoice.forEach((button) => {
-    for (let i = 0; i < numberOfRounds; i++) {
-      button.addEventListener("mousedown", (event) => {
-        if (event.button == 0) {
-          let playerSelection = button.id;
-          let computerSelection = computerPlay(choices);
-          playRound(playerSelection, computerSelection);
-          event.stopPropagation();
-        }
-      });
+  function displayResult() {
+    modal.style.visibility = "visible";
+    if (playerScore > computerScore) {
+      gameResult.textContent = "You Win!";
+      gameResult.style.color = "#03dac5";
+    } else if (playerScore == computerScore) {
+      gameResult.textContent = "It's a tie!";
+      gameResult.style.color = "#FFFFFF";
     }
-  });
+    playAgain.addEventListener("click", () => {
+      location.reload();
+      return false;
+    });
+  }
+
+  let clickTimes = 0;
+  playerChoice.addEventListener("click", g);
+  function g(event) {
+    if (event.target !== event.currentTarget) {
+      let playerSelection = event.target.textContent;
+      let computerSelection = computerPlay(choices);
+      playRound(playerSelection, computerSelection);
+      clickTimes++;
+      if (clickTimes == numberOfRounds) {
+        displayResult();
+      }
+    }
+  }
 }
 
 let choices = ["rock", "paper", "scissor"];
